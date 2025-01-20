@@ -12,11 +12,11 @@ can_ids = ["CC10010001"]
 
 broker_address = "104.237.2.25"  
 broker_port = 1883  
-client = mqtt.Client("PublisherClient")  
+client = mqtt.Client("PublisherClient4")  
 client.connect(broker_address, broker_port, 60)
 
 for i in range(1, 101):
-    for i in range(1, 3):
+    for i in range(1, 2):
         device_id = f"PIU10{i:02d}"
         for j in range(1, 9):
             position_id = f"PIU10{i:02d}{j:03d}"
@@ -37,7 +37,7 @@ for i in range(1, 101):
                 file.write(f"Topic: {topic}, Message: {json_output}\n")
             
             print(f"Published to topic {topic}: {json_output}")
-            # time.sleep(1)
+            time.sleep(2)
             count += 1
             print(f"count: {count}")
             print()
